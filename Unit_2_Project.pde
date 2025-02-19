@@ -44,6 +44,34 @@ int bldMy8;
 
 int bldMx9;
 int bldMy9;
+
+//Middle connector variables
+int mcx1;
+int mcy1;
+
+int mcx2;
+int mcy2;
+
+int mcx3;
+int mcy3;
+
+int mcx4;
+int mcy4;
+
+int mcx5;
+int mcy5;
+
+int mcx6;
+int mcy6;
+
+int mcx7;
+int mcy7;
+
+int mcx8;
+int mcy8;
+
+int mcx9;
+int mcy9;
 void setup() {
   size(1000, 1000);
   //Mountain variables
@@ -92,6 +120,34 @@ void setup() {
   
   bldMx9=1200;
   bldMy9=100;
+  
+  //Middle connector variables
+  mcx1=90;
+  mcy1=50;
+  
+  mcx2=240;
+  mcy2=0;
+  
+  mcx3=390;
+  mcy3=50;
+  
+  mcx4=540;
+  mcy4=75;
+  
+  mcx5=690;
+  mcy5=50;
+  
+  mcx6=840;
+  mcy6=75;
+  
+  mcx7=990;
+  mcy7=75;
+  
+  mcx8=1140;
+  mcy8=50;
+  
+  mcx9=-60;
+  mcy9=50;
   strokeWeight(1);
 }
 
@@ -149,6 +205,34 @@ void draw() {
   
   buildingMiddleI(bldMx9, bldMy9);
   bldMx9=bldMx9+3;
+  
+  //middle connector movement
+  MiddleConnectorA(mcx1, mcy1);
+  mcx1=mcx1+3;
+
+  MiddleConnectorB(mcx2, mcy2);
+  mcx2=mcx2+3;
+  
+  MiddleConnectorA(mcx3, mcy3);
+  mcx3=mcx3+3;
+  
+  MiddleConnectorC(mcx4, mcy4);
+  mcx4=mcx4+3;
+  
+  MiddleConnectorA(mcx5, mcy5);
+  mcx5=mcx5+3;
+  
+  MiddleConnectorC(mcx6, mcy6);
+  mcx6=mcx6+3;
+  
+  MiddleConnectorC(mcx7, mcy7);
+  mcx7=mcx7+3;
+  
+  MiddleConnectorA(mcx8, mcy8);
+  mcx8=mcx8+3;
+  
+  MiddleConnectorA(mcx9, mcy9);
+  mcx9=mcx9+3;
   //mountain if statements
   if (x>1000)
     x=-500;
@@ -199,6 +283,34 @@ void draw() {
     
   if(bldMx9>1200)
     bldMx9=-200;
+    
+  //middle connector if statements
+  if(mcx1>1200)
+    mcx1=-200;
+    
+  if(mcx2>1200)
+    mcx2=-200;
+    
+  if(mcx3>1200)
+    mcx3=-200;
+    
+  if(mcx4>1200)
+    mcx4=-200;
+    
+  if(mcx5>1200)
+    mcx5=-200;
+    
+  if(mcx6>1200)
+    mcx6=-200;
+    
+  if(mcx7>1200)
+    mcx7=-200;
+
+  if(mcx8>1200)
+    mcx8=-200;
+    
+  if(mcx9>1200)
+    mcx9=-200;
 }
 
 //Functions
@@ -405,5 +517,35 @@ void buildingMiddleI(int bmx9, int bmy9) {
   rect(20,320,110,20);
   rect(50,360,60,20);
   rect(30,400,80,20);
+  popMatrix();
+}
+
+void MiddleConnectorA(int Cx1, int Cy1) {
+  pushMatrix();
+  translate(Cx1,Cy1);
+  fill(60);
+  noStroke();
+  rect(0,300,60,275);
+
+  popMatrix();
+}
+
+void MiddleConnectorB(int Cx2, int Cy2) {
+  pushMatrix();
+  translate(Cx2,Cy2);
+  fill(60);
+  noStroke();
+  rect(0,300,60,325);
+
+  popMatrix();
+}
+
+void MiddleConnectorC(int Cx3, int Cy3) {
+  pushMatrix();
+  translate(Cx3,Cy3);
+  fill(60);
+  noStroke();
+  rect(0,300,60,250);
+
   popMatrix();
 }
