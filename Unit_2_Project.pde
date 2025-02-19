@@ -72,6 +72,14 @@ int mcy8;
 
 int mcx9;
 int mcy9;
+
+//Front building variables
+int bldFx;
+int bldFy;
+
+int bldFx2;
+int bldFy2;
+
 void setup() {
   size(1000, 1000);
   //Mountain variables
@@ -148,6 +156,13 @@ void setup() {
   
   mcx9=-60;
   mcy9=50;
+  
+  //Front building variables
+  bldFx=0;
+  bldFy=200;
+
+  bldFx2=200;
+  bldFy2=250;
   strokeWeight(1);
 }
 
@@ -233,6 +248,13 @@ void draw() {
   
   MiddleConnectorA(mcx9, mcy9);
   mcx9=mcx9+3;
+  
+  //Front building movement
+  buildingFrontA(bldFx, bldFy);
+  bldFx=bldFx+5;
+  
+  buildingFrontB(bldFx2, bldFy2);
+  bldFx2=bldFx2+5;
   //mountain if statements
   if (x>1000)
     x=-500;
@@ -311,6 +333,13 @@ void draw() {
     
   if(mcx9>1200)
     mcx9=-200;
+    
+  //Front building if statements
+  if(bldFx>1200)
+    bldFx=-200;
+
+  if(bldFx2>1200)
+    bldFx2=-200;
 }
 
 //Functions
@@ -547,5 +576,38 @@ void MiddleConnectorC(int Cx3, int Cy3) {
   noStroke();
   rect(0,300,60,250);
 
+  popMatrix();
+}
+
+void buildingFrontA(int bfx1, int bfy1) {
+  pushMatrix();
+  translate(bfx1,bfy1);
+  fill(38);
+  noStroke();
+  rect(0,250,150,300);
+  triangle(0,250,150,250,75,240);
+  
+  fill(250, 228, 65);
+  rect(20,270,110,20);
+  rect(20,310,110,20);
+  rect(20,350,110,20);
+  rect(20,390,110,20);
+  popMatrix();
+}
+
+void buildingFrontB(int bfx2, int bfy2) {
+  pushMatrix();
+  translate(bfx2,bfy2);
+  fill(38);
+  noStroke();
+  rect(0,250,150,250);
+  rect(20,240,110,10);
+  rect(40,230,70,10);
+  rect(60,220,30,10);
+  
+  fill(250, 228, 65);
+  rect(10,270,60,20);
+  rect(30,310,50,20);
+  rect(50,350,70,20);
   popMatrix();
 }
