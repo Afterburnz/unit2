@@ -365,6 +365,8 @@ void draw() {
   
   FrontConnectorA(fcx7, fcy7);
   fcx7=fcx7+5;
+  
+  Moon(0,0);
   //mountain if statements
   if (x>1000)
     x=-500;
@@ -813,5 +815,15 @@ void FrontConnectorA(int FCx1, int FCy1) {
   noStroke();
   rect(0,300,60,275);
 
+  popMatrix();
+}
+
+void Moon(int mnx,int mny) {
+  pushMatrix();
+  translate(mnx,mny);
+  fill(225);
+  noStroke();
+  ellipse(0,0,150,150);
+  
   popMatrix();
 }
